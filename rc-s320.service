@@ -1,0 +1,10 @@
+[Unit]
+Description=Pasori RC-S320 service
+Requires=dev-bus-usb-001-005.device
+After=dev-bus-usb-001-005.device
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+ExecStart=/home/pi/felica-poweroff/.direnv/python-3.2.3/bin/python /home/pi/felica-poweroff/felica_poweroff_service.py

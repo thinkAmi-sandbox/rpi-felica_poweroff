@@ -1,0 +1,8 @@
+ACTION!="add", GOTO="pasori_rules_end"
+SUBSYSTEM=="usb_device", GOTO="pasori_rules_start"
+SUBSYSTEM!="usb", GOTO="pasori_rules_end"
+LABEL="pasori_rules_start"
+
+ATTRS{idVendor}=="054c", ATTRS{idProduct}=="01bb", MODE="0664", GROUP="plugdev", TAG+="systemd", ENV{SYSTEMD_WANTS}+="rc-s320.service"
+
+LABEL="pasori_rules_end"
